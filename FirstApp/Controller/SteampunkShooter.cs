@@ -21,6 +21,8 @@ namespace FirstApp.Controller
 		SpriteBatch spriteBatch;
 		private Player player;
 
+
+
 		// Keyboard states used to determine key presses
 		KeyboardState currentKeyboardState;
 		KeyboardState previousKeyboardState;
@@ -93,7 +95,7 @@ namespace FirstApp.Controller
 		protected override void Initialize()
 		{
 			// TODO: Add your initialization logic here
-			player = new Player();
+			player = new Player(this);
 
 			// Set a constant player move speed
 			playerMoveSpeed = 8.0f;
@@ -122,7 +124,7 @@ namespace FirstApp.Controller
 			fireTime = TimeSpan.FromSeconds(.15f);
 
 			explosions = new List<Animation>();
-			type = "single";
+			type = "tri";
 
 
 			//Set player's score to zero
@@ -160,7 +162,7 @@ namespace FirstApp.Controller
 
 			enemyTexture = Content.Load<Texture2D>("Animation/mineAnimation");
 
-			projectileTexture = Content.Load<Texture2D>("Texture/laser");
+			projectileTexture = Content.Load<Texture2D>("Texture/rocket-1");
 
 			explosionTexture = Content.Load<Texture2D>("Animation/explosion");
 
@@ -322,15 +324,16 @@ namespace FirstApp.Controller
 				// Reset our current time
 				previousFireTime = gameTime.TotalGameTime;
 
-				// Add the projectile, but add it to the front and center of the player
-				AddProjectile(player.Position + new Vector2(player.Width / 2 , 0));
 
-               // AddProjectile(player.Position + new Vector2(player.Width / 2 , -15));
-               // AddProjectile(player.Position + new Vector2(player.Width / 2 , 30));
-               // AddProjectile(player.Position + new Vector2(player.Width / 2 , -30));
-               // AddProjectile(player.Position + new Vector2(player.Width / 2 , 45));
-               // AddProjectile(player.Position + new Vector2(player.Width / 2 , -45));
-                
+				player.fire("tri");
+
+
+				// AddProjectile(player.Position + new Vector2(player.Width / 2 , -15));
+				// AddProjectile(player.Position + new Vector2(player.Width / 2 , 30));
+				// AddProjectile(player.Position + new Vector2(player.Width / 2 , -30));
+				// AddProjectile(player.Position + new Vector2(player.Width / 2 , 45));
+				// AddProjectile(player.Position + new Vector2(player.Width / 2 , -45));
+
 
 				// Play the laser sound
 				//laserSound.Play();
@@ -464,9 +467,10 @@ namespace FirstApp.Controller
 			}
 		}
 
-		private void AddProjectile(Vector2 position)
+		public void AddProjectile(float x , float y , float speed, int gx, int gy)
 		{
-			Projectile projectile = new Projectile(0,"single");
+			Projectile projectile = new Projectile(x,y,speed,gx,gy);
+			Vector2 position = new Vector2(x , y);
 			projectile.Initialize(GraphicsDevice.Viewport , projectileTexture , position);
 			projectiles.Add(projectile);
 		}
@@ -476,14 +480,14 @@ namespace FirstApp.Controller
 			// Update the Projectiles
 			for(int i = projectiles.Count - 1; i >= 0; i--)
 			{
-				
+
 
 				projectiles[i].Update();
 
 				//if(projectiles.Count < 1000)
 				//{
-                    // AddProjectile(projectiles[i].Position - new Vector2(0 , 20));
-					//AddProjectile(projectiles[i].Position + new Vector2(0 , 20));
+				// AddProjectile(projectiles[i].Position - new Vector2(0 , 20));
+				//AddProjectile(projectiles[i].Position + new Vector2(0 , 20));
 				//}
 
 				if(projectiles[i].Active == false)
@@ -528,6 +532,12 @@ namespace FirstApp.Controller
 			}
 			catch { }
 		}
+
+
+
+
 	}
+
+
 
 }

@@ -21,5 +21,9 @@
     <File>/Users/afar0835/Projects/FirstApp/FirstApp/Content/Sound/laserFire.wav</File>
     <File>/Users/afar0835/Projects/FirstApp/FirstApp/Content/Sound/menuMusic.mp3</File>
     <File>/Users/afar0835/Projects/FirstApp/FirstApp/Content/Font/gameFont.spritefont</File>
+    <File>/Users/afar0835/Projects/FirstApp/FirstApp/Content/Texture/mainbackground2.png</File>
+    <File>/Users/afar0835/Projects/FirstApp/FirstApp/Content/Texture/2bglayer2.png</File>
+    <File>/Users/afar0835/Projects/FirstApp/FirstApp/Content/Texture/2bglayer1.png</File>
+    <File>/Users/afar0835/Projects/FirstApp/FirstApp/Content/Texture/rocket-1.png</File>
   </SourceFiles>
 </SourceFileCollection>

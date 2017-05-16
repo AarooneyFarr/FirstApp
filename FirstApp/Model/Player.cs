@@ -1,7 +1,15 @@
 ﻿using System;
+
+
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+using FirstApp.Model;
 using FirstApp.View;
+using Microsoft.Xna.Framework.Input.Touch;
+using FirstApp.Controller;
 
 namespace FirstApp.Model
 {
@@ -9,6 +17,7 @@ namespace FirstApp.Model
 	{
 		// Animation representing the player
 
+		private Game1 game;
 		private Animation playerAnimation;
 
 		public Animation PlayerAnimation
@@ -103,6 +112,21 @@ namespace FirstApp.Model
 			PlayerAnimation.Draw(spriteBatch);
 		}
 
+		public void fire(String bType)
+		{
+			if(bType.Equals("tri"))
+			{
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , 0);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , 2);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , -2);
+
+			}
+		}
+
+		public Player(Game1 gameController)
+		{
+			this.game = gameController;
+		}
 	}
 
 }

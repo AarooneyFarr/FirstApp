@@ -1,20 +1,19 @@
 ﻿<Properties StartupConfiguration="{3B2EAEB1-AD72-4192-A975-D578C2DDDBC1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="FirstApp/Model/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FirstApp/Model/Powerup.cs">
     <Files>
       <File FileName="FirstApp/Controller/Program.cs" Line="32" Column="4" />
-      <File FileName="FirstApp/Model/Player.cs" Line="20" Column="1" />
-      <File FileName="FirstApp/View/Animation.cs" Line="12" Column="16" />
-      <File FileName="FirstApp/View/ParallaxingBackground.cs" Line="8" Column="24" />
-      <File FileName="FirstApp/Model/Enemy.cs" Line="4" Column="21" />
-      <File FileName="FirstApp/Controller/SteampunkShooter.cs" Line="312" Column="17" />
-      <File FileName="FirstApp/Model/Projectile.cs" Line="81" Column="4" />
+      <File FileName="FirstApp/Model/Player.cs" Line="120" Column="63" />
+      <File FileName="FirstApp/Controller/SteampunkShooter.cs" Line="50" Column="3" />
+      <File FileName="FirstApp/Model/Projectile.cs" Line="81" Column="32" />
+      <File FileName="FirstApp/Model/Powerup.cs" Line="1" Column="1" />
+      <File FileName="FirstApp/Model/Enemy.cs" Line="103" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint enabled="false" file="/Users/afar0835/Projects/FirstApp/FirstApp/Model/Player.cs" relfile="FirstApp/Model/Player.cs" line="109" column="1" />
-      <Breakpoint enabled="false" file="/Users/afar0835/Projects/FirstApp/FirstApp/Controller/SteampunkShooter.cs" relfile="FirstApp/Controller/SteampunkShooter.cs" line="226" column="1" />
+      <Breakpoint enabled="false" file="/Users/afar0835/Projects/FirstApp/FirstApp/Model/Player.cs" relfile="FirstApp/Model/Player.cs" line="133" column="1" />
+      <Breakpoint enabled="false" file="/Users/afar0835/Projects/FirstApp/FirstApp/Controller/SteampunkShooter.cs" relfile="FirstApp/Controller/SteampunkShooter.cs" line="232" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

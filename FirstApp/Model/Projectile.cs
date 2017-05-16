@@ -38,8 +38,9 @@ namespace FirstApp
 			get { return Texture.Height; }
 		}
 
-		public int gravity;
-		public String type;
+		public int gravityX;
+		public int gravityY;
+
 
 
 		// Determines how fast the projectile moves
@@ -62,11 +63,9 @@ namespace FirstApp
 
 		public void Update()
 		{
-			if(type.Equals("single"))
-			{
-				// Projectiles always move to the right
-				Position.X += projectileMoveSpeed;
-			}
+			
+				fire(Position.X , Position.Y , projectileMoveSpeed , gravityX , gravityY);
+			
 			// Deactivate the bullet if it goes out of screen
 			if(Position.X + Texture.Width / 2 > viewport.Width)
 			{
@@ -74,15 +73,24 @@ namespace FirstApp
 			}
 		}
 
-		public void fire(int x, int y, int speed, int gx, int gy)
+		public void fire(float x , float y , float speed , int gx , int gy)
 		{
 			Position.X = x;
 			Position.Y = y;
 
+			projectileMoveSpeed = speed;
+
+			gravityX = gx;
+			gravityY = gy;
+
+			Position.X += speed;
+			Position.Y = (float) ((0.5) * gy * Math.Pow(((gy)) , 2)) + y;
 
 
-
-
+			if(Position.X + Texture.Width / 2 > viewport.Width)
+			{
+				Active = false;
+			}
 
 		}
 
@@ -92,11 +100,17 @@ namespace FirstApp
 			new Vector2(Width / 2 , Height / 2) , 1f , SpriteEffects.None , 0f);
 		}
 
-		public Projectile(int gravity, String type)
+		public Projectile(float x , float y , float speed , int gx , int gy)
 		{
-			this.gravity = gravity;
-			this.type = type;
+			this.gravityX = gx;
+			this.gravityY = gy;
+			this.Position.X = x;
+			this.Position.Y = y;
+			this.projectileMoveSpeed = speed;
 
 		}
+
+
+
 	}
 }

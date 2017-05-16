@@ -37,3 +37,9 @@
 /Users/afar0835/Projects/FirstApp/FirstApp/bin/Debug/OpenTK.dll
 /Users/afar0835/Projects/FirstApp/FirstApp/bin/Debug/NVorbis.dll
 /Users/afar0835/Projects/FirstApp/FirstApp/bin/Debug/Content/Texture/laser2.xnb
+/Users/afar0835/Projects/FirstApp/FirstApp/bin/Debug/Content/Texture/mainbackground2.xnb
+/Users/afar0835/Projects/FirstApp/FirstApp/bin/Debug/FirstApp.pdb
+/Users/afar0835/Projects/FirstApp/FirstApp/obj/x86/Debug/FirstApp.pdb
+/Users/afar0835/Projects/FirstApp/FirstApp/bin/Debug/Content/Texture/2bglayer2.xnb
+/Users/afar0835/Projects/FirstApp/FirstApp/bin/Debug/Content/Texture/2bglayer1.xnb
+/Users/afar0835/Projects/FirstApp/FirstApp/bin/Debug/Content/Texture/rocket-1.xnb
