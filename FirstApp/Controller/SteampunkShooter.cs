@@ -45,9 +45,17 @@ namespace FirstApp.Controller
 		Texture2D enemyTexture;
 		List<Enemy> enemies;
 
+		// Power-Ups
+		Texture2D powerupTexture;
+		List<Powerup> powerups;
+
 		// The rate at which the enemies appear
 		TimeSpan enemySpawnTime;
 		TimeSpan previousSpawnTime;
+
+		// The rate at which the powerups appear
+		TimeSpan powerupSpawnTime;
+		TimeSpan powPreviousSpawnTime;
 
 		// A random number generator
 		Random random;
@@ -109,11 +117,19 @@ namespace FirstApp.Controller
 			// Initialize the enemies list
 			enemies = new List<Enemy>();
 
+			powerups = new List<Powerup>();
+
 			// Set the time keepers to zero
 			previousSpawnTime = TimeSpan.Zero;
 
 			// Used to determine how fast enemy respawns
 			enemySpawnTime = TimeSpan.FromSeconds(1.0f);
+
+			// Set the time keepers to zero
+			powPreviousSpawnTime = TimeSpan.Zero;
+
+			// Used to determine how fast Powerup respawns
+			powerupSpawnTime = TimeSpan.FromSeconds(1.0f);
 
 			// Initialize our random number generator
 			random = new Random();
@@ -124,7 +140,7 @@ namespace FirstApp.Controller
 			fireTime = TimeSpan.FromSeconds(.15f);
 
 			explosions = new List<Animation>();
-			type = "tri";
+			type = "single";
 
 
 			//Set player's score to zero
@@ -163,6 +179,7 @@ namespace FirstApp.Controller
 			enemyTexture = Content.Load<Texture2D>("Animation/mineAnimation");
 
 			projectileTexture = Content.Load<Texture2D>("Texture/rocket-1");
+			powerupTexture = Content.Load<Texture2D>("Texture/power-up-1");
 
 			explosionTexture = Content.Load<Texture2D>("Animation/explosion");
 
@@ -216,6 +233,9 @@ namespace FirstApp.Controller
 			// Update the enemies
 			UpdateEnemies(gameTime);
 
+			//Update Powerups
+			UpdatePowerups(gameTime);
+
 			// Update the collision
 			UpdateCollision();
 
@@ -251,6 +271,12 @@ namespace FirstApp.Controller
 				enemies[i].Draw(spriteBatch);
 			}
 
+			// Draw the Powerups
+			for(int i = 0; i<powerups.Count; i++)
+			{
+				powerups[i].Draw(spriteBatch);
+			}
+
 			// Draw the Projectiles
 			for(int i = 0; i < projectiles.Count; i++)
 			{
@@ -274,7 +300,7 @@ namespace FirstApp.Controller
 			// Stop drawing
 			spriteBatch.End();
 
-			//TODO: Add your drawing code here
+
 
 			base.Draw(gameTime);
 		}
@@ -325,7 +351,7 @@ namespace FirstApp.Controller
 				previousFireTime = gameTime.TotalGameTime;
 
 
-				player.fire("tri");
+				player.fire(type);
 
 
 				// AddProjectile(player.Position + new Vector2(player.Width / 2 , -15));
@@ -402,12 +428,59 @@ namespace FirstApp.Controller
 			}
 		}
 
+		private void UpdatePowerups(GameTime gameTime)
+		{
+			// Spawn a new enemy enemy every 1.5 seconds
+			if(gameTime.TotalGameTime - powPreviousSpawnTime > powerupSpawnTime)
+			{
+				powPreviousSpawnTime = gameTime.TotalGameTime;
+
+				// Add an Enemy
+				AddPowerup();
+			}
+
+			// Update the Enemies
+			for(int i = powerups.Count - 1; i >= 0; i--)
+			{
+				powerups[i].Update(gameTime);
+
+				if(powerups[i].Active == false)
+				{
+					
+					powerups.RemoveAt(i);
+				}
+			}
+		}
+
+		private void AddPowerup()
+		{
+			// Create the animation object
+			Powerup powerup = new Powerup();
+
+			// Initialize the animation with the correct animation information
+			//enemyAnimation.Initialize(enemyTexture , Vector2.Zero , 47 , 61 , 8 , 30 , Color.White , 1f , true);
+
+
+			// Randomly generate the position of the enemy
+			Vector2 position = new Vector2(GraphicsDevice.Viewport.Width + enemyTexture.Width / 2 , random.Next(100 , GraphicsDevice.Viewport.Height - 100));
+
+			// Create an enemy
+
+
+			// Initialize the enemy
+			powerup.Initialize(powerupTexture , position);
+
+			// Add the enemy to the active enemies list
+			powerups.Add(powerup);
+		}
+
 		private void UpdateCollision()
 		{
 			// Use the Rectangle's built-in intersect function to
 			// determine if two objects are overlapping
 			Rectangle rectangle1;
 			Rectangle rectangle2;
+			Rectangle rectangle3;
 
 			// Only create the rectangle once for the player
 			rectangle1 = new Rectangle((int)player.Position.X ,
@@ -443,6 +516,35 @@ namespace FirstApp.Controller
 
 			}
 
+			// Do the collision between the player and the Powerups
+			for(int i = 0; i<powerups.Count; i++)
+			{
+				rectangle3 = new Rectangle((int)powerups[i].Position.X ,
+				(int)powerups[i].Position.Y ,
+				powerups[i].Width ,
+				powerups[i].Height);
+
+				// Determine if the two objects collided with each
+				// other
+				if(rectangle1.Intersects(rectangle3))
+				{
+					// Subtract the health from the player based on
+					// the enemy damage
+					player.Health -= powerups[i].Damage;
+
+					// Since the enemy collided with the player
+					// destroy it
+					powerups[i].Health = 0;
+					type = powerups[i].Type;
+
+					// If the player health is less than zero we died
+					if(player.Health <= 0)
+						player.Active = false;
+				}
+
+
+			}
+
 			// Projectile vs Enemy Collision
 			for(int i = 0; i < projectiles.Count; i++)
 			{
@@ -467,9 +569,9 @@ namespace FirstApp.Controller
 			}
 		}
 
-		public void AddProjectile(float x , float y , float speed, int gx, int gy)
+		public void AddProjectile(float x , float y , float speed , int gx , int gy, int angle)
 		{
-			Projectile projectile = new Projectile(x,y,speed,gx,gy);
+			Projectile projectile = new Projectile(x , y , speed , gx , gy, angle);
 			Vector2 position = new Vector2(x , y);
 			projectile.Initialize(GraphicsDevice.Viewport , projectileTexture , position);
 			projectiles.Add(projectile);

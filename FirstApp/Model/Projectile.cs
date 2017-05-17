@@ -41,6 +41,8 @@ namespace FirstApp
 		public int gravityX;
 		public int gravityY;
 
+		private double rotation;
+
 
 
 		// Determines how fast the projectile moves
@@ -53,6 +55,7 @@ namespace FirstApp
 			Position = position;
 			this.viewport = viewport;
 
+
 			Active = true;
 
 			Damage = 2;
@@ -64,7 +67,7 @@ namespace FirstApp
 		public void Update()
 		{
 			
-				fire(Position.X , Position.Y , projectileMoveSpeed , gravityX , gravityY);
+				fire(Position.X , Position.Y , projectileMoveSpeed , gravityX , gravityY, rotation );
 			
 			// Deactivate the bullet if it goes out of screen
 			if(Position.X + Texture.Width / 2 > viewport.Width)
@@ -73,7 +76,7 @@ namespace FirstApp
 			}
 		}
 
-		public void fire(float x , float y , float speed , int gx , int gy)
+		public void fire(float x , float y , float speed , int gx , int gy, double angle)
 		{
 			Position.X = x;
 			Position.Y = y;
@@ -86,6 +89,7 @@ namespace FirstApp
 			Position.X += speed;
 			Position.Y = (float) ((0.5) * gy * Math.Pow(((gy)) , 2)) + y;
 
+			rotation = angle;
 
 			if(Position.X + Texture.Width / 2 > viewport.Width)
 			{
@@ -96,17 +100,17 @@ namespace FirstApp
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			spriteBatch.Draw(Texture , Position , null , Color.White , 0f ,
-			new Vector2(Width / 2 , Height / 2) , 1f , SpriteEffects.None , 0f);
-		}
+			spriteBatch.Draw(Texture , Position , null , Color.White , (float) rotation , Vector2.Zero , 1f , SpriteEffects.None , 0f);
 
-		public Projectile(float x , float y , float speed , int gx , int gy)
+		}
+		public Projectile(float x , float y , float speed , int gx , int gy, double angleRot)
 		{
 			this.gravityX = gx;
 			this.gravityY = gy;
 			this.Position.X = x;
 			this.Position.Y = y;
 			this.projectileMoveSpeed = speed;
+			this.rotation = angleRot;
 
 		}
 

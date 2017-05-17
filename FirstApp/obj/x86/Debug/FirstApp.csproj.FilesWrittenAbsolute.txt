@@ -43,3 +43,4 @@
 /Users/afar0835/Projects/FirstApp/FirstApp/bin/Debug/Content/Texture/2bglayer2.xnb
 /Users/afar0835/Projects/FirstApp/FirstApp/bin/Debug/Content/Texture/2bglayer1.xnb
 /Users/afar0835/Projects/FirstApp/FirstApp/bin/Debug/Content/Texture/rocket-1.xnb
+/Users/afar0835/Projects/FirstApp/FirstApp/bin/Debug/Content/Texture/power-up-1.xnb

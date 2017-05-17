@@ -116,11 +116,16 @@ namespace FirstApp.Model
 		{
 			if(bType.Equals("tri"))
 			{
-				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , 0);
-				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , 2);
-				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , -2);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , 0 , 0);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , 2 , 0);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , -2 , 0);
 
 			}
+			if(bType.Equals("single"))
+			{
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , 0 , 0);
+			}
+			   
 		}
 
 		public Player(Game1 gameController)
