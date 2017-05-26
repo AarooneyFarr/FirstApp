@@ -569,7 +569,7 @@ namespace FirstApp.Controller
 			}
 		}
 
-		public void AddProjectile(float x , float y , float speed , int gx , int gy, int angle)
+		public void AddProjectile(float x , float y , float speed , int gx , int gy, double angle)
 		{
 			Projectile projectile = new Projectile(x , y , speed , gx , gy, angle);
 			Vector2 position = new Vector2(x , y);

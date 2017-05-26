@@ -3,11 +3,11 @@
   <SourceFile>/Users/afar0835/Projects/FirstApp/FirstApp/Content/Texture/2bglayer1.png</SourceFile>
   <SourceTime>2017-05-16T07:39:35-06:00</SourceTime>
   <DestFile>/Users/afar0835/Projects/FirstApp/FirstApp/Content/bin/DesktopGL/Texture/2bglayer1.xnb</DestFile>
-  <DestTime>2017-05-16T07:40:24-06:00</DestTime>
+  <DestTime>2017-05-25T07:32:29-06:00</DestTime>
   <Importer>TextureImporter</Importer>
-  <ImporterTime>2016-03-30T00:36:22-06:00</ImporterTime>
+  <ImporterTime>2017-03-01T08:06:24-07:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
-  <ProcessorTime>2016-03-30T00:36:22-06:00</ProcessorTime>
+  <ProcessorTime>2017-03-01T08:06:24-07:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>255,0,255,255</Value>

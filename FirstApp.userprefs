@@ -1,17 +1,17 @@
 ﻿<Properties StartupConfiguration="{3B2EAEB1-AD72-4192-A975-D578C2DDDBC1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="FirstApp/Controller/SteampunkShooter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="FirstApp/Model/Powerup.cs">
     <Files>
-      <File FileName="FirstApp/Model/Player.cs" Line="124" Column="30" />
-      <File FileName="FirstApp/Controller/SteampunkShooter.cs" Line="533" Column="24" />
-      <File FileName="FirstApp/Model/Powerup.cs" Line="99" Column="4" />
-      <File FileName="FirstApp/Model/Projectile.cs" Line="81" Column="32" />
+      <File FileName="FirstApp/Model/Player.cs" Line="131" Column="74" />
+      <File FileName="FirstApp/Controller/SteampunkShooter.cs" Line="572" Column="86" />
+      <File FileName="FirstApp/Model/Powerup.cs" Line="119" Column="22" />
+      <File FileName="FirstApp/Model/Projectile.cs" Line="104" Column="4" />
       <File FileName="FirstApp/Model/Enemy.cs" Line="103" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint enabled="false" file="/Users/afar0835/Projects/FirstApp/FirstApp/Model/Player.cs" relfile="FirstApp/Model/Player.cs" line="138" column="1" />
+      <Breakpoint enabled="false" file="/Users/afar0835/Projects/FirstApp/FirstApp/Model/Player.cs" relfile="FirstApp/Model/Player.cs" line="150" column="1" />
       <Breakpoint enabled="false" file="/Users/afar0835/Projects/FirstApp/FirstApp/Controller/SteampunkShooter.cs" relfile="FirstApp/Controller/SteampunkShooter.cs" line="248" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

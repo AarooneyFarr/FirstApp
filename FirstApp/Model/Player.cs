@@ -117,13 +117,25 @@ namespace FirstApp.Model
 			if(bType.Equals("tri"))
 			{
 				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , 0 , 0);
-				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , 2 , 0);
-				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , -2 , 0);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , 2 , 0.35);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , -2 , -0.35);
 
 			}
 			if(bType.Equals("single"))
 			{
 				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , 0 , 0);
+			}
+			if(bType.Equals("crazy"))
+			{
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 0 , 0 , 1);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 1 , 1 , .01);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , -1 , -1 , -.01);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 2 , 2 , 0.35);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , -2 , -2 , -0.35);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 3 , 3 , 0.75);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , -3 , -3 , -0.75);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , 4 , 4 , 1);
+				game.AddProjectile(this.Position.X  , this.Position.Y  , 2 , -4 , -4 , -1);
 			}
 			   
 		}

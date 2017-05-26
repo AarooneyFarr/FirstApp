@@ -81,7 +81,7 @@ namespace FirstApp.Model
 			Value = 0;
 
 			// Set the type to random
-			type = randomType();
+			//type = randomType();
 
 		}
 
@@ -90,7 +90,7 @@ namespace FirstApp.Model
 			// The enemy always moves to the left so decrement it's xposition
 			Position.X -= powerupMoveSpeed;
 
-
+			type = randomType();
 
 
 
@@ -116,23 +116,13 @@ namespace FirstApp.Model
 		{
 			String ranType = "";
 
-			Random rand = new Random(2);
-
-			int random = (int) rand.Next();
-
-			switch(random)
+			if(this.Position.Y % 10 < 5)
 			{
-				case 1:
+				ranType = "crazy";
+			}
+			else
+			{
 				ranType = "tri";
-				break;
-
-				case 2:
-				ranType = "single";
-				break;
-
-				default:
-				ranType = "single";
-				break;
 			}
 
 			return ranType;
@@ -141,6 +131,8 @@ namespace FirstApp.Model
 
 		public Powerup()
 		{
+			//type = randomType();
+
 		}
 	}
 }
